@@ -1,0 +1,33 @@
+{
+  "name": "agent-action-guard",
+  "version": "0.1.0",
+  "description": "Execution-time authorization and structured events for AI agent actions in TypeScript apps.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext --skipLibCheck test/types.ts",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "demo": "npm run build && node examples/support-agent.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "keywords": ["agent", "authorization", "ai", "mcp", "security", "typescript"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/habtamugeta2-r/Better-Agent-Auth.git"
+  }
+}
